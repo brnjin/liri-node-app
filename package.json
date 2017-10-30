@@ -1,0 +1,27 @@
+{
+  "name": "node-homework",
+  "version": "2.83.0",
+  "dependencies": {
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.83.0",
+    "twitter": "^1.7.1"
+  },
+  "description": "Node homework using gitbash, javascript, and npm packages",
+  "main": "keys.js",
+  "scripts": {
+    "test": "console.log(\"Hello\")"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brnjin/node-homework.git"
+  },
+  "keywords": [
+    "[]"
+  ],
+  "author": "Brian J",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brnjin/node-homework/issues"
+  },
+  "homepage": "https://github.com/brnjin/node-homework#readme"
+}
