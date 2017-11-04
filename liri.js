@@ -6,7 +6,7 @@ var commands = command[2];
 //Sets name of variable the user is trying to search
 var item = command[3]
 
-
+//Sets the swtich to take in different commands 
 switch(commands) {
 	case "movie-this":
 		movieCall();
@@ -14,9 +14,9 @@ switch(commands) {
 	case "my-tweets":
 		tweetIt();
 		break;
-/*	case "spotify-this-song":
+	case "spotify-this-song":
 		spotifyThis();
-		break;*/
+		break;
 	case "do-what-it-says":
 		doTheThing();
 		break;
@@ -64,6 +64,21 @@ function tweetIt(){
 });
 };
 
+function spotifyThis(){
+	var spotify = require("./keys.js");
+	var spotifyKeys = spotify.spotifyKey;
+ 	//Sets the limit of the search results and find the song
+	spotifyKeys.search({ type: 'track', query: item, limit: 1 }, function(err, data) {
+	    if (err) {
+	    	return console.log('Error occurred: ' + err);
+	    };  
+		console.log("Artist: " + data.tracks.items[0].artists[0].name);
+		console.log("Song Name: " + data.tracks.items[0].name);
+		console.log("Spotify Link: " + data.tracks.items[0].artists[0].external_urls.spotify);
+		console.log("Album Name: " + data.tracks.items[0].album.name);
+	});
+};
+
 function doTheThing(){
 	//fs package to grab text from random.txt
 	var fs = require("fs");
@@ -71,10 +86,10 @@ function doTheThing(){
 		if (error) {
 			return console.log(error);
 		};
-	//getting the second item to search on spotify npm
-	item = data[1]
-	console.log(data);
-/*	commands = data.split(",").splice(",");*/
-	movieCall();
+	//Splitting the text into an array by separting ","
+	var commands = data.split(",");
+	//Grabs the item index of one after it was split 
+	item = commands[1]
+	spotifyThis();
 	});	
 };

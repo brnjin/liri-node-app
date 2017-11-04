@@ -7,4 +7,12 @@ var twitterKeys = new Twitter ({
   access_token_secret: 'tSxXxJ9JjUquCvajU0P2fFV6iAHpZB9alJqnnKk2D8FI5',
 });
 
+var Spotify = require('node-spotify-api');
+
+var spotifyKey = new Spotify({
+	  id: "80c0afd156d3482296464024271c940a",
+	  secret: "dc2e596431e04fce8e00c3fc4fc386b9"
+	});
+
 module.exports.twitterKeys = twitterKeys;
+module.exports.spotifyKey = spotifyKey;
